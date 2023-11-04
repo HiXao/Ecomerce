@@ -5,6 +5,7 @@ export default async function handle(req, res) {
     const {method} = req;
     //Kết nối data base
     await mongooseConnect();
+    await isAdminRequest(req,res);
 
     //Phương thức GET theo id product cụ thể
     if(method === 'GET'){

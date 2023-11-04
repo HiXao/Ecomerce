@@ -8,7 +8,7 @@ export default async function handle(req, res){
     const {method} = req;
     await mongooseConnect();
 
-    //await isAdminRequest(req,res);
+    await isAdminRequest(req,res);
 
     if(method === 'GET'){
             res.json(await Category.find().populate('parent'));
